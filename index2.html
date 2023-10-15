@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ace Attorney Web</title>
     <link rel="stylesheet" href="assets/fonts/webfont.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles2.css" />
   </head>
 
   <body oncontextmenu="return false;">
     <!-- L'écran supérieur -->
-    <div id="top_screen">
+    <div id="top_screen" class="window">
       <!-- Les éléments textuels du jeu (nom, et le message) -->
-      <div id="textbox">
-        <p id="name"></p>
-        <p id="dialog"></p>
-      </div>
 
       <!-- Personnage & arrière plan -->
       <div id="characterbox">
@@ -46,19 +42,18 @@
           class="d-none"
         />
       </div>
+      <div id="textbox">
+        <p id="name"></p>
+        <p id="dialog"></p>
+      </div>
 
       <div id="soundeffect">
-        <img
-          src="assets/img/ui/volume.png"
-          alt="sound "
-          id="logo_sound"
-         
-        />
+        <img src="assets/img/ui/volume.png" alt="sound " id="logo_sound" />
       </div>
     </div>
 
     <!-- L'écran inférieur -->
-    <div id="bottom_screen">
+    <div id="bottom_screen" class="window">
       <!-- L'arrière plan de l'écran inférieur -->
       <img
         src="assets/img/ui/bg_bottom.jpg"
@@ -67,13 +62,32 @@
       />
 
       <!-- Bouton message suivant -->
-      <div id="nextbox">
-        <img
-          src="assets/img/ui/default_button.png"
-          alt="Next Button"
-          id="next_button"
-        />
-        <img src="assets/img/ui/arrow.png" alt="next button arrow" id="arrow" />
+      <div id="intraction_space">
+        
+
+
+        <div class="choise-box">
+
+
+        </div>
+        <div class="navig">
+          <div id="prevbox" class="btn-navigation">
+            <img
+              src="assets/img/ui/default_button.png"
+              alt="previous Button"
+              id="prev_button"
+            />
+            <img src="assets/img/ui/arrow.png" alt="next button arrow" id="arrow" />
+          </div>
+          <div id="nextbox" class="btn-navigation">
+            <img
+              src="assets/img/ui/default_button.png"
+              alt="Next Button"
+              id="next_button"
+            />
+            <img src="assets/img/ui/arrow.png" alt="next button arrow" id="arrow" />
+          </div>
+        </div>
       </div>
     </div>
 

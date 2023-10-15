@@ -1,0 +1,141 @@
+body {
+  width: 70vh;
+}
+body .window {
+  position: relative;
+  height: 52.5vh;
+}
+body #top_screen {
+  background-color: green;
+}
+body #top_screen #textbox {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  height: 100%;
+}
+body #top_screen #textbox #name {
+  background-color: green;
+  position: absolute;
+  width: 14%;
+  height: 4%;
+  bottom: 36%;
+  left: 1.5%;
+  margin: 0%;
+  text-align: center;
+}
+body #top_screen #textbox #dialog {
+  width: 96%;
+  height: 32%;
+  background-color: red;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  margin: 0%;
+}
+body #top_screen #characterbox {
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
+body #top_screen #characterbox #bg {
+  position: absolute;
+  width: 100%;
+}
+body #top_screen #characterbox #character {
+  position: absolute;
+  width: 100%;
+}
+body #top_screen #dialogbox {
+  width: 100%;
+  height: 100%;
+}
+body #top_screen #dialogbox #window_name {
+  position: absolute;
+  width: 15%;
+  bottom: 36%;
+  left: 1%;
+}
+body #top_screen #dialogbox #window_message {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+body #top_screen #soundeffect {
+  top: 1%;
+  left: 1%;
+  position: absolute;
+  width: 5%;
+}
+body #top_screen #soundeffect #logo_sound {
+  position: absolute;
+  width: 100%;
+}
+body #bottom_screen {
+  height: 52.5vh;
+}
+body #bottom_screen #bg_bottom {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
+body #bottom_screen #intraction_space {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+body #bottom_screen #intraction_space .choise-box {
+  position: absolute;
+  border: 2px solid black;
+  height: 60%;
+  width: 80%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body #bottom_screen #intraction_space .navig {
+  position: absolute;
+  display: flex;
+  width: 80%;
+  height: 20%;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body #bottom_screen #intraction_space .navig .btn-navigation {
+  position: relative;
+  height: 100%;
+  width: 50%;
+}
+body #bottom_screen #intraction_space .navig .btn-navigation #next_button,
+body #bottom_screen #intraction_space .navig .btn-navigation #prev_button {
+  width: 100%;
+}
+body #bottom_screen #intraction_space .navig .btn-navigation #arrow {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body #bottom_screen #intraction_space .navig .btn-navigation img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+body #bottom_screen #intraction_space .navig #prevbox #arrow {
+  position: absolute;
+  transform: rotate(180deg) translateY(50%);
+  left: 1%;
+  top: 50%;
+}
+body #bottom_screen #nextbox {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
+
+/*# sourceMappingURL=styles2.css.map */

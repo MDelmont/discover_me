@@ -22,6 +22,10 @@ const ui = {
   nextBox: document.querySelector("#nextbox"),
   nextButton: document.querySelector("#next_button"),
   arrowButton: document.querySelector("#arrow"),
+
+  // partie sound
+  soundEffect: document.querySelector("#soundeffect"),
+  logoSound: document.querySelector("#logo_sound"),
 };
 
 // élements lié à l'audio
@@ -40,12 +44,12 @@ const scene = [
     name: "Tektiv",
     expression: "pumped",
     message:
-      "Bonjour pour le moment c'est un test je shcerhc un truc pour avoirs unbee fefe!",
+      "${red}Bonjour ${/} pour le moment ${blue}c'est un test${/}  je shcerhc un truc pour avoirs unbee fefe!",
     voice: audios.male,
   },
   {
-    character: "tektiv",
-    name: "Tektiv",
+    character: "maya",
+    name: "Maya",
     expression: "mad",
     message: "C'est le second message pour le moment",
     voice: audios.male,
@@ -90,12 +94,27 @@ const typeWriter = (currentScene) => {
   }
   isTyping = true;
   setCharacter(currentScene.character, currentScene.expression, "talking");
+
+  currentScene.message = currentScene.message
+    .replace(/\$\{(red|green|blue)\}/g, '<span class= "$1">')
+    .replace(/\$\{\/\}/g, "</span>");
+
   const message = currentScene.message?.trim();
   typeWriterInterval = setInterval(() => {
     if (index < message.length) {
-      printedMessage += message[index];
-      index++;
-      ui.dialog.textContent = printedMessage;
+      if (message[index] === "<") {
+        const closingTagIndex = message.indexOf(">", index);
+        if (closingTagIndex != -1) {
+          printedMessage += message.substring(index, closingTagIndex + 1);
+          index = closingTagIndex + 1;
+        } else {
+        }
+      } else {
+        printedMessage += message[index];
+        index++;
+      }
+
+      ui.dialog.innerHTML = printedMessage;
       if (index % 2 == 0 && !mute) {
         currentScene.voice.currentTime = 0;
         currentScene.voice.volume = 0.01;
@@ -116,7 +135,7 @@ const showNextDialog = () => {
     ui.windowMessage.classList.add("d-none");
     ui.windowName.classList.add("d-none");
     ui.characterName.textContent = null;
-    ui.dialog.textContent = null;
+    ui.dialog.innerHTML = null;
   } else {
     messageIndex++;
     ui.windowMessage.classList.remove("d-none");
@@ -135,7 +154,7 @@ const setCharacter = (character, expression, mode = "silent") => {
 
 const displayFullMessage = () => {
   const currentScene = scene[messageIndex];
-  ui.dialog.textContent = currentScene.message;
+  ui.dialog.innerHTML = currentScene.message;
   setCharacter(currentScene.character, currentScene.expression, "silent");
 };
 
@@ -159,5 +178,19 @@ ui.nextBox.addEventListener("click", () => {
       showNextDialog();
       resetUiButton();
     }, 100);
+  }
+});
+
+ui.soundEffect.addEventListener("click", () => {
+  if (mute) {
+    mute = false;
+    ui.logoSound.src = `./assets/img/ui/volume.png`;
+    audios.bgm.loop = true;
+    audios.bgm.volume = 0.05;
+    audios.bgm.play();
+  } else {
+    mute = true;
+    ui.logoSound.src = `./assets/img/ui/mute.png`;
+    audios.bgm.pause();
   }
 });
