@@ -25,4 +25,4 @@ const scene = [
   },
 ];
 
-export default  scene ;
+export default scene;

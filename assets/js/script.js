@@ -32,7 +32,6 @@ const navigationButton = (side = "next") => {
         buttons.pressedBtp
       );
     }
-    console.log(characters.statusAction.isTyping);
     characters.statusAction.isTyping = false;
   } else {
     setTimeout(() => {
@@ -72,18 +71,5 @@ const muteSong = () => {
 ui.nextBox.addEventListener("click", () => navigationButton("next"));
 
 ui.prevBox.addEventListener("click", () => navigationButton("prev"));
-
-//   if (isTyping) {
-//     clearInterval(typeWriterInterval);
-//     characters.displayFullMessage();
-//     buttons.resetUiButton(ui.prevButton, ui.arrowPrevButton);
-//     isTyping = false;
-//   } else {
-//     setTimeout(() => {
-//       characters.showDialog((direction = "prev"));
-//       buttons.resetUiButton(ui.prevButton, ui.arrowPrevButton);
-//     }, 100);
-//   }
-// });
 
 ui.soundEffect.addEventListener("click", () => muteSong());

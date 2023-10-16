@@ -11,11 +11,12 @@ let statusAction = {
 const displayFullMessage = () => {
   const currentScene = scene[messageIndex];
   ui.dialog.innerHTML = currentScene.message;
-  setCharacter(currentScene.character, currentScene.expression, "silent");
+  setCharacter(currentScene.character, currentScene.expression);
 };
 
 // set character sprite
-const setCharacter = (character, expression, mode = "silent") => {
+const setCharacter = (character, expression, isTalking = 0) => {
+  const mode = isTalking ? "talking" : "silent";
   ui.character.src = `./assets/img/sprites/${character}/${mode}/${expression}.gif`;
 };
 
@@ -53,12 +54,10 @@ const typeWriter = (currentScene) => {
     clearInterval(typeWriterInterval);
   }
   statusAction.isTyping = true;
-  setCharacter(currentScene.character, currentScene.expression, "talking");
-
+  setCharacter(currentScene.character, currentScene.expression, 1);
   currentScene.message = currentScene.message
     .replace(/\$\{(red|green|blue)\}/g, '<span class= "$1">')
     .replace(/\$\{\/\}/g, "</span>");
-
   const message = currentScene.message?.trim();
   typeWriterInterval = setInterval(() => {
     if (index < message.length) {
@@ -73,14 +72,13 @@ const typeWriter = (currentScene) => {
         printedMessage += message[index];
         index++;
       }
-
       ui.dialog.innerHTML = printedMessage;
       if (index % 2 == 0) {
         playVoice(currentScene);
       }
     } else {
       clearInterval(typeWriterInterval);
-      setCharacter(currentScene.character, currentScene.expression, "silent");
+      setCharacter(currentScene.character, currentScene.expression);
       statusAction.isTyping = false;
     }
   }, 30);
