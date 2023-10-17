@@ -11,7 +11,9 @@ const ui = {
   // Nom et message :
   characterName: document.querySelector("#name"),
   dialog: document.querySelector("#dialog"),
+  // choice part
 
+  choiceBox: document.querySelector("#choice_box"),
   // Button UI
   //next
   nextBox: document.querySelector("#nextbox"),

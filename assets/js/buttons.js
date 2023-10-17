@@ -1,5 +1,7 @@
 import { playNext } from "./audios.js";
-
+import ui from "./ui.js";
+import * as characters from "./characters.js";
+import * as scenes from "./scenes.js";
 let pressedBtp = false;
 
 const resetUiButton = (btn, arrow) => {
@@ -16,5 +18,48 @@ const pressButton = (btn, arrow) => {
   btn.src = "assets/img/ui/pressed_button.png";
   playNext();
 };
+const addDisableToBtn = (btn) => {
+  console.log(btn);
+  console.log(btn.classList);
+  if (!btn.classList.contains("desable")) {
+    btn.classList.add("desable");
+  }
+};
+const removeDesableBtn = (btn) => {
+  console.log(btn);
+  console.log(btn.classList);
+  if (btn.classList.contains("desable")) {
+    btn.classList.remove("desable");
+  }
+};
+const desableButton = () => {
+  console.log("avant");
+  console.log(scenes.configScene.messageIndex);
+  console.log(ui.nextBox);
+  console.log(ui.prevBox);
+  if (scenes.returnCurrentDialogs().length == 1 && !characters.statusAction.isTyping) {
+    addDisableToBtn(ui.nextBox);
+    addDisableToBtn(ui.prevBox);
+  } else if (
+    scenes.configScene.messageIndex == 0 &&
+    !characters.statusAction.isTyping
+  ) {
+    addDisableToBtn(ui.prevBox);
+    removeDesableBtn(ui.nextBox);
+  } else if (
+    scenes.returnCurrentDialogs().length - 1 == scenes.configScene.messageIndex &&
+    !characters.statusAction.isTyping
+  ) {
+    addDisableToBtn(ui.nextBox);
+    removeDesableBtn(ui.prevBox);
+  } else {
+    removeDesableBtn(ui.nextBox);
+    removeDesableBtn(ui.prevBox);
+  }
 
-export { resetUiButton, pressButton, pressedBtp };
+  console.log("apres");
+  console.log(ui.nextBox);
+  console.log(ui.prevBox);
+};
+
+export { resetUiButton, pressButton, pressedBtp, desableButton };

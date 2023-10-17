@@ -35,4 +35,19 @@ const playVoice = (currentScene) => {
   }
 };
 
-export { audios, audioSettings, playBgm, playNext, playVoice };
+const handleEffectAudio = (effect) => {
+  if (!audioSettings.mute) {
+    audios[effect].currentTime = 0;
+    audios[effect].volume = 0.1;
+    audios[effect].play();
+  }
+};
+
+export {
+  audios,
+  audioSettings,
+  playBgm,
+  playNext,
+  playVoice,
+  handleEffectAudio,
+};

@@ -1,6 +1,8 @@
 import ui from "./ui.js";
-import scene from "./datas.js";
-import { playVoice } from "./audios.js";
+import * as scenes from "./scenes.js";
+import * as buttons from "./buttons.js";
+import { playVoice, handleEffectAudio } from "./audios.js";
+
 let typeWriterInterval;
 let messageIndex = -1;
 
@@ -9,8 +11,9 @@ let statusAction = {
 };
 
 const displayFullMessage = () => {
-  const currentScene = scene[messageIndex];
-  ui.dialog.innerHTML = currentScene.message;
+  const currentScene = scenes.returnCurrentDialogs()[scenes.configScene.messageIndex];
+  const message = currentScene.message.replaceAll(/\$\{[?!]\}/g, "");
+  ui.dialog.innerHTML = message;
   setCharacter(currentScene.character, currentScene.expression);
 };
 
@@ -22,11 +25,11 @@ const setCharacter = (character, expression, isTalking = 0) => {
 
 const showDialog = (direction = "next") => {
   if (
-    (messageIndex == 2 && direction == "next") |
-    (messageIndex == 0 && direction == "prev") |
-    (messageIndex == -1 && direction == "prev")
+    (scenes.configScene.messageIndex == scenes.returnCurrentDialogs().length - 1 && direction == "next") |
+    (scenes.configScene.messageIndex == 0 && direction == "prev") |
+    (scenes.configScene.messageIndex == -1 && direction == "prev")
   ) {
-    messageIndex = -1;
+    scenes.configScene.messageIndex = -1;
 
     ui.windowMessage.classList.add("d-none");
     ui.windowName.classList.add("d-none");
@@ -34,16 +37,38 @@ const showDialog = (direction = "next") => {
     ui.dialog.innerHTML = null;
   } else {
     if (direction == "next") {
-      messageIndex++;
+      scenes.configScene.messageIndex++;
     } else {
-      messageIndex--;
+      scenes.configScene.messageIndex--;
     }
     ui.windowMessage.classList.remove("d-none");
     showWindowName();
-    ui.characterName.textContent = scene[messageIndex]?.name;
+    ui.characterName.textContent = scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name;
 
-    typeWriter(scene[messageIndex]);
+    typeWriter(scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]);
   }
+};
+const nextCharacterAreEffects = (str, index) => {
+  return (
+    str.substring(index, index + 4) === "${?}" ||
+    str.substring(index, index + 4) === "${!}"
+  );
+};
+
+const getEffect = (str, index) => {
+  const substring = str.substring(index, index + 4);
+  if (substring === "${?}") return "shake";
+  if (substring === "${!}") return "alert";
+  return null;
+};
+
+const handleEffect = (effect) => {
+  handleEffectAudio(effect);
+  const element = effect === "alerte" ? ui.characterBox : ui.bg;
+  element.classList.add(effect);
+  setTimeout(() => {
+    element.classList.remove(effect);
+  }, 500);
 };
 
 // effect machine à écrire !
@@ -53,14 +78,25 @@ const typeWriter = (currentScene) => {
   if (typeWriterInterval) {
     clearInterval(typeWriterInterval);
   }
+
   statusAction.isTyping = true;
-  setCharacter(currentScene.character, currentScene.expression, 1);
+
+  const isTalking =
+    currentScene.name.toLowerCase() === currentScene.character.toLowerCase();
+  setCharacter(currentScene.character, currentScene.expression, isTalking);
+
   currentScene.message = currentScene.message
     .replace(/\$\{(red|green|blue)\}/g, '<span class= "$1">')
     .replace(/\$\{\/\}/g, "</span>");
   const message = currentScene.message?.trim();
+
   typeWriterInterval = setInterval(() => {
     if (index < message.length) {
+      if (nextCharacterAreEffects(message, index)) {
+        const effect = getEffect(message, index);
+        handleEffect(effect);
+        index += 4;
+      }
       if (message[index] === "<") {
         const closingTagIndex = message.indexOf(">", index);
         if (closingTagIndex != -1) {
@@ -80,16 +116,17 @@ const typeWriter = (currentScene) => {
       clearInterval(typeWriterInterval);
       setCharacter(currentScene.character, currentScene.expression);
       statusAction.isTyping = false;
+      buttons.desableButton();
     }
   }, 30);
 };
 
 const showWindowName = () => {
-  if (ui.windowName.classList.contains("d-none") && scene[messageIndex]?.name) {
+  if (ui.windowName.classList.contains("d-none") && scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name) {
     ui.windowName.classList.remove("d-none");
   } else if (
     ui.windowName.classList.contains("d-none") == false &&
-    scene[messageIndex]?.name == null
+    scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name == null
   ) {
     ui.windowName.classList.add("d-none");
   }

@@ -4,6 +4,8 @@ import ui from "./ui.js";
 import * as audios from "./audios.js";
 import * as buttons from "./buttons.js";
 import * as characters from "./characters.js";
+import * as choises from "./choises.js";
+import * as scenes from "./scenes.js";
 // Interaction button
 
 const navigationButton = (side = "next") => {
@@ -11,8 +13,10 @@ const navigationButton = (side = "next") => {
   if (buttons.pressedBtp) return;
 
   if (side == "next") {
+    if (ui.nextButton.classList.contains("desable")) return;
     buttons.pressButton(ui.nextButton, ui.arrowNextButton);
   } else {
+    if (ui.prevButton.classList.contains("desable")) return;
     buttons.pressButton(ui.prevButton, ui.arrowPrevButton);
   }
 
@@ -32,10 +36,12 @@ const navigationButton = (side = "next") => {
         buttons.pressedBtp
       );
     }
+
     characters.statusAction.isTyping = false;
+    buttons.desableButton();
   } else {
     setTimeout(() => {
-      characters.showDialog(side);
+      scenes.makeScene(side);
       if (side == "next") {
         buttons.resetUiButton(
           ui.nextButton,
@@ -61,10 +67,20 @@ const muteSong = () => {
     audios.audios.bgm.volume = 0.05;
     audios.audios.bgm.play();
   } else {
-    console.log(audios.audioSettings.mute);
     audios.audioSettings.mute = true;
     ui.logoSound.src = `./assets/img/ui/mute.png`;
     audios.audios.bgm.pause();
+  }
+};
+
+const selectChoise = (event) => {
+  const clickedElement = event.target;
+
+  if (clickedElement.classList.contains("choice")) {
+    const id = clickedElement.id;
+    scenes.configScene.currentSceneIndex = id;
+    scenes.configScene.messageIndex = -1;
+    scenes.makeScene();
   }
 };
 
@@ -73,3 +89,5 @@ ui.nextBox.addEventListener("click", () => navigationButton("next"));
 ui.prevBox.addEventListener("click", () => navigationButton("prev"));
 
 ui.soundEffect.addEventListener("click", () => muteSong());
+
+ui.choiceBox.addEventListener("click", () => selectChoise(event));
