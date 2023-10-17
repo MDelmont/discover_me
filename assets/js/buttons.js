@@ -33,10 +33,7 @@ const removeDesableBtn = (btn) => {
   }
 };
 const desableButton = () => {
-  console.log("avant");
-  console.log(scenes.configScene.messageIndex);
-  console.log(ui.nextBox);
-  console.log(ui.prevBox);
+
   if (scenes.returnCurrentDialogs().length == 1 && !characters.statusAction.isTyping) {
     addDisableToBtn(ui.nextBox);
     addDisableToBtn(ui.prevBox);
@@ -57,9 +54,7 @@ const desableButton = () => {
     removeDesableBtn(ui.prevBox);
   }
 
-  console.log("apres");
-  console.log(ui.nextBox);
-  console.log(ui.prevBox);
+ 
 };
 
 export { resetUiButton, pressButton, pressedBtp, desableButton };

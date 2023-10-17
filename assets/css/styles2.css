@@ -110,6 +110,7 @@ body #bottom_screen #interaction_space .choice-box .choice p {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   margin: 0;
+  user-select: none;
 }
 body #bottom_screen #interaction_space .choice-box .choice:active {
   background-image: url("../img/ui/pressed_choice_button.png");
@@ -239,6 +240,9 @@ p {
   40%, 60% {
     transform: translate3d(6px, 0, 0);
   }
+}
+a {
+  color: #4291c9;
 }
 
 /*# sourceMappingURL=styles2.css.map */

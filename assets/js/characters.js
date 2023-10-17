@@ -11,7 +11,8 @@ let statusAction = {
 };
 
 const displayFullMessage = () => {
-  const currentScene = scenes.returnCurrentDialogs()[scenes.configScene.messageIndex];
+  const currentScene =
+    scenes.returnCurrentDialogs()[scenes.configScene.messageIndex];
   const message = currentScene.message.replaceAll(/\$\{[?!]\}/g, "");
   ui.dialog.innerHTML = message;
   setCharacter(currentScene.character, currentScene.expression);
@@ -23,9 +24,13 @@ const setCharacter = (character, expression, isTalking = 0) => {
   ui.character.src = `./assets/img/sprites/${character}/${mode}/${expression}.gif`;
 };
 
+const setBg = (bgName) => {
+  ui.bg.src = `./assets/img/bg/${bgName}.png`;
+};
 const showDialog = (direction = "next") => {
   if (
-    (scenes.configScene.messageIndex == scenes.returnCurrentDialogs().length - 1 && direction == "next") |
+    (scenes.configScene.messageIndex ==
+      scenes.returnCurrentDialogs().length - 1 && direction == "next") |
     (scenes.configScene.messageIndex == 0 && direction == "prev") |
     (scenes.configScene.messageIndex == -1 && direction == "prev")
   ) {
@@ -41,9 +46,11 @@ const showDialog = (direction = "next") => {
     } else {
       scenes.configScene.messageIndex--;
     }
+    buttons.desableButton();
     ui.windowMessage.classList.remove("d-none");
     showWindowName();
-    ui.characterName.textContent = scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name;
+    ui.characterName.textContent =
+      scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name;
 
     typeWriter(scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]);
   }
@@ -84,6 +91,7 @@ const typeWriter = (currentScene) => {
   const isTalking =
     currentScene.name.toLowerCase() === currentScene.character.toLowerCase();
   setCharacter(currentScene.character, currentScene.expression, isTalking);
+  setBg(currentScene.backgroud);
 
   currentScene.message = currentScene.message
     .replace(/\$\{(red|green|blue)\}/g, '<span class= "$1">')
@@ -122,7 +130,10 @@ const typeWriter = (currentScene) => {
 };
 
 const showWindowName = () => {
-  if (ui.windowName.classList.contains("d-none") && scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name) {
+  if (
+    ui.windowName.classList.contains("d-none") &&
+    scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name
+  ) {
     ui.windowName.classList.remove("d-none");
   } else if (
     ui.windowName.classList.contains("d-none") == false &&

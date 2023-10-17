@@ -115,6 +115,7 @@ body {
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             margin: 0;
+            user-select: none;
           }
 
           &:active {
@@ -312,4 +313,8 @@ p {
   60% {
     transform: translate3d(6px, 0, 0);
   }
+}
+
+a {
+  color: #4291c9;
 }

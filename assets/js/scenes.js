@@ -3,7 +3,7 @@ import * as characters from "./characters.js";
 import * as choises from "./choises.js";
 const configScene = {
   currentSceneIndex: 1,
-  messageIndex:-1,
+  messageIndex: -1,
 };
 
 const scenes = {
@@ -34,16 +34,15 @@ const scenes = {
         voice: audios.male,
         backgroud: "office",
         choices: {
-          2: "Ma personnalité",
-          3: "Mes projets",
-          4: "Mes compétences",
-          5: "Fuir !",
+          2: "Fuir !",
+          3: "Ma personnalité",
+          7: "Mes projets",
+          15: "Mes compétences",
         },
       },
     ],
   },
-
-  5: {
+  2: {
     dialogues: [
       {
         character: "tektiv",
@@ -54,7 +53,227 @@ const scenes = {
         voice: audios.male,
         backgroud: "office",
         choices: {
-          1: "Home",
+          1: "Fuir quand même !",
+        },
+      },
+    ],
+  },
+
+  3: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Avec qui veux tu découvrir ma personnalité ?",
+        voice: audios.male,
+        backgroud: "office",
+        choices: {
+          4: "Moi",
+          5: "Un proche",
+          6: "Un collegue",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  4: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "C'est simple appel moi ! ${blue}06 28 33 57 49 ${/}",
+        voice: audios.male,
+        backgroud: "office",
+        choices: {
+          1: "Fuir !",
+          3: "Personalité !",
+        },
+      },
+    ],
+  },
+  5: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Désolé pour le moment ils sont tous en vacances !",
+        voice: audios.male,
+        backgroud: "trainstation",
+        choices: {
+          3: "Personalité !",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  6: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Désolé pour le moment ils sont tous en vacances !",
+        voice: audios.male,
+        backgroud: "trainstation",
+        choices: {
+          1: "Fuir !",
+          3: "Personalité !",
+        },
+      },
+    ],
+  },
+  7: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Quel projet veux tu voir ?",
+        voice: audios.male,
+        backgroud: "office",
+        choices: {
+          8: "Geo-cockpit",
+          9: "Dashboard Dofus",
+          10: "Bataille naval",
+          11: "Dashbord d'activité",
+          12: "Boardgame",
+          13: "disciver me",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+
+  8: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message:
+          "Très bon choix ! Geo-cockpit est un projet réalisé en entreprise chez Urbanease !",
+        voice: audios.male,
+        backgroud: "office",
+      },
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message:
+          "Il est un outil web de gestion d'activité , permettant d'accompagner l'équipe géomatique au quotiens !",
+        voice: audios.male,
+        backgroud: "office",
+      },
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message:
+          'Si tu veux en savoir plus <a target="_blank" href="https://tricolor-cloak-87d.notion.site/Geo-cockpit-8ae87764bfb845a8a3aaac76778fcd99?pvs=4">Clique-ici</a> !',
+        voice: audios.male,
+        backgroud: "office",
+        choices: {
+          8: "Projet",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  9: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Travaux en cours",
+        voice: audios.male,
+        backgroud: "BridgeOut",
+        choices: {
+          7: "Projet",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  10: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Travaux en cours",
+        voice: audios.male,
+        backgroud: "BridgeOut",
+        choices: {
+          7: "Projet",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  11: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Travaux en cours",
+        voice: audios.male,
+        backgroud: "BridgeOut",
+        choices: {
+          7: "Projet",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  12: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Travaux en cours",
+        voice: audios.male,
+        backgroud: "BridgeOut",
+        choices: {
+          7: "Projet",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+  13: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Travaux en cours",
+        voice: audios.male,
+        backgroud: "BridgeOut",
+        choices: {
+          7: "Projet",
+          1: "Fuir !",
+        },
+      },
+    ],
+  },
+
+  15: {
+    dialogues: [
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Mes compétence arrive bientôt ! ",
+        voice: audios.male,
+        backgroud: "BridgeOut",
+        choices: {
+          1: "Fuir !",
         },
       },
     ],

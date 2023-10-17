@@ -9,6 +9,7 @@ import * as scenes from "./scenes.js";
 // Interaction button
 
 const navigationButton = (side = "next") => {
+  
   audios.playBgm();
   if (buttons.pressedBtp) return;
 
@@ -74,13 +75,16 @@ const muteSong = () => {
 };
 
 const selectChoise = (event) => {
-  const clickedElement = event.target;
+  const clickedElement =
+    event.target.nodeName === "P" ? event.target.parentNode : event.target;
 
   if (clickedElement.classList.contains("choice")) {
     const id = clickedElement.id;
     scenes.configScene.currentSceneIndex = id;
     scenes.configScene.messageIndex = -1;
+
     scenes.makeScene();
+    buttons.desableButton();
   }
 };
 
