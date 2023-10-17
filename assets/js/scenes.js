@@ -88,7 +88,7 @@ const scenes = {
         backgroud: "office",
         choices: {
           1: "Fuir !",
-          3: "Personalité !",
+          3: "personnalité !",
         },
       },
     ],
@@ -103,7 +103,7 @@ const scenes = {
         voice: audios.male,
         backgroud: "trainstation",
         choices: {
-          3: "Personalité !",
+          3: "personnalité !",
           1: "Fuir !",
         },
       },
@@ -120,7 +120,7 @@ const scenes = {
         backgroud: "trainstation",
         choices: {
           1: "Fuir !",
-          3: "Personalité !",
+          3: "personnalité !",
         },
       },
     ],
@@ -176,7 +176,7 @@ const scenes = {
         voice: audios.male,
         backgroud: "office",
         choices: {
-          8: "Projet",
+          7: "Projet",
           1: "Fuir !",
         },
       },
@@ -188,9 +188,28 @@ const scenes = {
         character: "tektiv",
         name: "Matthieu",
         expression: "pumped",
-        message: "Travaux en cours",
+        message:
+          "Et oui un projet data ! Dashboard Dofus est un projet réalisé pour mettre en avant mes compétences dans la datavisualisation !",
         voice: audios.male,
-        backgroud: "BridgeOut",
+        backgroud: "office",
+      },
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message:
+          "Il est un outil web de prise de déscision. Il pourrait permettre pas exemple au developpeur du jeux dofus de savoir que sont les équipements à créer pour un nouveau contenu !",
+        voice: audios.male,
+        backgroud: "office",
+      },
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message:
+          'Si tu veux en savoir plus <a target="_blank" href="https://tricolor-cloak-87d.notion.site/Dashboard-visualisation-d-quipement-8d55c9f836c642c182c943debcc3d0c1?pvs=4">Clique-ici</a> !',
+        voice: audios.male,
+        backgroud: "office",
         choices: {
           7: "Projet",
           1: "Fuir !",
@@ -204,9 +223,27 @@ const scenes = {
         character: "tektiv",
         name: "Matthieu",
         expression: "pumped",
-        message: "Travaux en cours",
+        message:
+          "Un projet assez amusant ! Ce projet m'a permis de travailler sur les bonnes pratiques du développement web!",
         voice: audios.male,
-        backgroud: "BridgeOut",
+        backgroud: "office",
+      },
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message: "Il est un jeu, ou l'ont créer deux équipes qui s'affronte !",
+        voice: audios.male,
+        backgroud: "office",
+      },
+      {
+        character: "tektiv",
+        name: "Matthieu",
+        expression: "pumped",
+        message:
+          'Si tu veux en savoir plus <a target="_blank" href="https://tricolor-cloak-87d.notion.site/Projet-Bataille-naval-1f5c52c968ae485da5a743c9490b4629?pvs=4">Clique-ici</a> !',
+        voice: audios.male,
+        backgroud: "office",
         choices: {
           7: "Projet",
           1: "Fuir !",

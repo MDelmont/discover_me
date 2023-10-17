@@ -1,10 +1,17 @@
 body {
-  width: 50vh;
+  position: absolute;
+  width: 60vh;
+  background-color: black;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 100%;
 
   .window {
     position: relative;
 
-    height: 50vh * 0.75;
+    height: 60vh * 0.75;
   }
   #top_screen {
     #textbox {
@@ -73,7 +80,7 @@ body {
     }
   }
   #bottom_screen {
-    height: 50vh * 0.75;
+    height: 60vh * 0.75;
     #bg_bottom {
       position: absolute;
       top: 0%;

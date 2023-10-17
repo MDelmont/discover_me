@@ -1,9 +1,16 @@
 body {
-  width: 50vh;
+  position: absolute;
+  width: 60vh;
+  background-color: black;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 100%;
 }
 body .window {
   position: relative;
-  height: 37.5vh;
+  height: 45vh;
 }
 body #top_screen #textbox {
   position: absolute;
@@ -67,7 +74,7 @@ body #top_screen #soundeffect #logo_sound {
   width: 100%;
 }
 body #bottom_screen {
-  height: 37.5vh;
+  height: 45vh;
 }
 body #bottom_screen #bg_bottom {
   position: absolute;
