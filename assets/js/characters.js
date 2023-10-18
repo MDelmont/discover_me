@@ -89,7 +89,7 @@ const typeWriter = (currentScene) => {
   statusAction.isTyping = true;
 
   const isTalking =
-    currentScene.name.toLowerCase() === currentScene.character.toLowerCase();
+    ui.character.src.includes(currentScene.character.toLowerCase());
   setCharacter(currentScene.character, currentScene.expression, isTalking);
   setBg(currentScene.backgroud);
 
