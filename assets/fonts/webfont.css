@@ -1,23 +1,150 @@
 /* Webfont CSS setup for Igiari by Caveras */
 
 @font-face {
-	font-family:'Igiari';
-		src:url('Igiari.eot');
-		src:url('Igiari.eot?#iefix') format('embedded-opentype'),
-				url('Igiari.woff') format('woff'),
-				url('Igiari.ttf') format('truetype'),
-				url('Igiari.svg#Igiari') format('svg');
-	font-weight:normal;
-	font-style:normal;
+  font-family: "Igiari";
+  src: url("Igiari.eot");
+  src: url("Igiari.eot?#iefix") format("embedded-opentype"),
+    url("Igiari.woff") format("woff"), url("Igiari.ttf") format("truetype"),
+    url("Igiari.svg#Igiari") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	@font-face {
-		font-family:'Igiari';
-		src: url('Igiari.svg') format('svg');
-		font-weight:normal;
-		font-style:normal;
-	}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Igiari";
+    src: url("Igiari.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
 }
 
+.choice p {
+  font-size: 0.3rem;
+}
 
+.start p {
+  font-size: 0.8rem;
+}
+.btn-navigation p {
+  font-size: 0.3rem;
+}
+
+#window_name #name {
+  font-size: 0.3rem;
+}
+
+#textbox #dialog {
+  font-size: 0.35rem;
+}
+
+@media screen and (min-width: 240px) and (min-height: 350px) {
+  .choice p {
+    font-size: 0.6rem;
+  }
+
+  .start p {
+    font-size: 1rem;
+  }
+  .btn-navigation p {
+    font-size: 0.6rem;
+  }
+
+  #window_name #name {
+    font-size: 0.6rem;
+  }
+
+  #textbox #dialog {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tailles de police pour les écrans de 300x500 pixels ou plus */
+@media screen and (min-width: 300px) and (min-height: 500px) {
+  .choice p {
+    font-size: 0.7rem;
+  }
+
+  .start p {
+    font-size: 1.1rem;
+  }
+
+  .btn-navigation p {
+    font-size: 0.7rem;
+  }
+
+  #window_name #name {
+    font-size: 0.7rem;
+  }
+
+  #textbox #dialog {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tailles de police pour les écrans de 400x600 pixels ou plus */
+@media screen and (min-width: 400px) and (min-height: 600px) {
+  .choice p {
+    font-size: 0.8rem;
+  }
+
+  .start p {
+    font-size: 1.2rem;
+  }
+
+  .btn-navigation p {
+    font-size: 0.8rem;
+  }
+
+  #window_name #name {
+    font-size: 0.8rem;
+  }
+
+  #textbox #dialog {
+    font-size: 0.9rem;
+  }
+}
+/* Tailles de police pour les écrans de 450x700 pixels ou plus */
+@media screen and (min-width: 450px) and (min-height: 700px) {
+  .choice p {
+    font-size: 1.1rem;
+  }
+
+  .start p {
+    font-size: 1.3rem;
+  }
+
+  .btn-navigation p {
+    font-size: 1.1rem;
+  }
+
+  #window_name #name {
+    font-size: 1.2rem;
+  }
+
+  #textbox #dialog {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 500px) and (min-height: 800px) {
+  .choice p {
+    font-size: 1.3rem;
+  }
+
+  .start p {
+    font-size: 1.8rem;
+  }
+
+  .btn-navigation p {
+    font-size: 1.4rem;
+  }
+
+  #window_name #name {
+    font-size: 1.35rem;
+  }
+
+  #textbox #dialog {
+    font-size: 1.3rem;
+  }
+}
