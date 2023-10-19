@@ -11,8 +11,7 @@ let statusAction = {
 };
 
 const displayFullMessage = () => {
-  const currentScene =
-    scenes.returnCurrentDialogs()[scenes.configScene.messageIndex];
+  const currentScene = scenes.returnCurrentDialog();
   const message = currentScene.message.replaceAll(/\$\{[?!]\}/g, "");
   ui.dialog.innerHTML = message;
   setCharacter(currentScene.character, currentScene.expression);
@@ -49,10 +48,8 @@ const showDialog = (direction = "next") => {
     buttons.desableButton();
     ui.windowMessage.classList.remove("d-none");
     showWindowName();
-    ui.characterName.textContent =
-      scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name;
-
-    typeWriter(scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]);
+    ui.characterName.textContent = scenes.returnCurrentDialog()?.name;
+    typeWriter(scenes.returnCurrentDialog());
   }
 };
 const nextCharacterAreEffects = (str, index) => {
@@ -88,8 +85,9 @@ const typeWriter = (currentScene) => {
 
   statusAction.isTyping = true;
 
-  const isTalking =
-    ui.character.src.includes(currentScene.character.toLowerCase());
+  const isTalking = ui.character.src.includes(
+    currentScene.character.toLowerCase()
+  );
   setCharacter(currentScene.character, currentScene.expression, isTalking);
   setBg(currentScene.backgroud);
 
@@ -128,16 +126,15 @@ const typeWriter = (currentScene) => {
     }
   }, 30);
 };
-
 const showWindowName = () => {
   if (
     ui.windowName.classList.contains("d-none") &&
-    scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name
+    scenes.returnCurrentDialog()?.name
   ) {
     ui.windowName.classList.remove("d-none");
   } else if (
     ui.windowName.classList.contains("d-none") == false &&
-    scenes.returnCurrentDialogs()[scenes.configScene.messageIndex]?.name == null
+    scenes.returnCurrentDialog()?.name == null
   ) {
     ui.windowName.classList.add("d-none");
   }

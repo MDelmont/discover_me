@@ -19,15 +19,13 @@ const pressButton = (btn, arrow) => {
   playNext();
 };
 const addDisableToBtn = (btn) => {
-  console.log(btn);
-  console.log(btn.classList);
+
   if (!btn.classList.contains("desable")) {
     btn.classList.add("desable");
   }
 };
 const removeDesableBtn = (btn) => {
-  console.log(btn);
-  console.log(btn.classList);
+
   if (btn.classList.contains("desable")) {
     btn.classList.remove("desable");
   }

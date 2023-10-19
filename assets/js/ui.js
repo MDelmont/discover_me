@@ -14,7 +14,11 @@ const ui = {
   // choice part
 
   choiceBox: document.querySelector("#choice_box"),
+
+  bgBottom: document.querySelector("#bg_bottom"),
   // Button UI
+  //navig
+  navig: document.querySelector(".navig"),
   //next
   nextBox: document.querySelector("#nextbox"),
   nextButton: document.querySelector("#next_button"),

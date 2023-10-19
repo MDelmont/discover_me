@@ -9,7 +9,6 @@ import * as scenes from "./scenes.js";
 // Interaction button
 
 const navigationButton = (side = "next") => {
-  
   audios.playBgm();
   if (buttons.pressedBtp) return;
 
@@ -77,8 +76,16 @@ const muteSong = () => {
 const selectChoise = (event) => {
   const clickedElement =
     event.target.nodeName === "P" ? event.target.parentNode : event.target;
-
+  const clickedElementchild =
+    event.target.nodeName === "P" ? event.target : event.target.children[0];
   if (clickedElement.classList.contains("choice")) {
+    if (clickedElementchild.textContent === "Start") {
+      ui.character.classList.remove("d-none");
+      ui.soundEffect.classList.remove("d-none");
+      ui.navig.classList.remove("d-none");
+      ui.choiceBox.classList.remove("start");
+      ui.bgBottom.src = "./assets/img/bg/SecretRoom.png";
+    }
     const id = clickedElement.id;
     scenes.configScene.currentSceneIndex = id;
     scenes.configScene.messageIndex = -1;

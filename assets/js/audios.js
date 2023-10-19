@@ -28,11 +28,15 @@ const playNext = () => {
 };
 
 const playVoice = (currentScene) => {
+  const currentaudio = takeCurrentsceneAudio(currentScene);
   if (!audioSettings.mute) {
-    currentScene.voice.currentTime = 0;
-    currentScene.voice.volume = 0.01;
-    currentScene.voice.play();
+    currentaudio.currentTime = 0;
+    currentaudio.volume = 0.01;
+    currentaudio.play();
   }
+};
+const takeCurrentsceneAudio = (currentScene) => {
+  return audios[currentScene.voice];
 };
 
 const handleEffectAudio = (effect) => {
