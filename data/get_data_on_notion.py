@@ -76,10 +76,10 @@ for dialog in data["results"]:
 
     for id_scenario in id_scenarios:
         if id_scenario in scenarios.keys():
-            scenarios[id_scenario].append(make_format_dialog(character,backgroud,expression,name,choices,message,voice,order))
+            scenarios[id_scenario]['dialogues'].append(make_format_dialog(character,backgroud,expression,name,choices,message,voice,order))
         else:
 
-            scenarios[id_scenario] = [make_format_dialog(character,backgroud,expression,name,choices,message,voice,order)]
+            scenarios[id_scenario] = { "dialogues": [make_format_dialog(character,backgroud,expression,name,choices,message,voice,order)]}
 
     
 
