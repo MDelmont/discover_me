@@ -62,6 +62,9 @@ body #top_screen #dialogbox #window_name {
   background-image: url("../img/ui/name_box.png");
   background-size: 100% 100%;
 }
+body #top_screen #dialogbox #window_name.d-none {
+  display: none;
+}
 body #top_screen #dialogbox #window_name #name {
   margin: 2px;
   width: 100%;
@@ -110,6 +113,9 @@ body #bottom_screen #interaction_space .choice-box {
   display: grid;
   grid-template-columns: 50% 50%;
 }
+body #bottom_screen #interaction_space .choice-box.start {
+  grid-template-columns: 100%;
+}
 body #bottom_screen #interaction_space .choice-box .choice {
   position: relative;
   text-align: center;
@@ -143,6 +149,9 @@ body #bottom_screen #interaction_space .navig {
   top: 70%;
   left: 50%;
   transform: translateX(-50%);
+}
+body #bottom_screen #interaction_space .navig.d-none {
+  display: none;
 }
 body #bottom_screen #interaction_space .navig .btn-navigation {
   position: relative;
@@ -198,6 +207,25 @@ body #bottom_screen #nextbox p {
   position: absolute;
   margin: 0;
   left: 10px;
+}
+body #bottom_screen .footer {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  color: black;
+}
+body #bottom_screen .footer.d-none {
+  display: none;
+}
+body #bottom_screen .footer p {
+  color: black;
+  size: 12;
+}
+body #bottom_screen .footer a img {
+  height: 35px;
 }
 body .d-none {
   display: none;
@@ -259,6 +287,22 @@ p {
 }
 a {
   color: #4291c9;
+}
+
+img {
+  position: absolute;
+  user-select: none;
+  /* ignore select move image on page */
+  -webkit-user-drag: none;
+  /* ignore drag image on page */
+  -webkit-touch-callout: none;
+  /* ignore callout image on page */
+  -webkit-user-select: none;
+  /* ignore select image on page */
+  -moz-user-select: none;
+  /* ignore select image on page */
+  -ms-user-select: none;
+  /* ignore select image on page */
 }
 
 /*# sourceMappingURL=styles2.css.map */

@@ -64,18 +64,20 @@ body {
         left: 1%;
         background-image: url("../img/ui/name_box.png");
         background-size: 100% 100%;
+        &.d-none {
+          display: none;
+        }
 
         #name {
           margin: 2px;
           width: 100%;
           text-align: center;
-         
         }
       }
       #window_message {
         width: 100%;
         position: absolute;
-        bottom: 0px; 
+        bottom: 0px;
       }
     }
     #soundeffect {
@@ -116,7 +118,9 @@ body {
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: 50% 50%;
-
+        &.start {
+          grid-template-columns: 100%;
+        }
         .choice {
           position: relative;
           text-align: center;
@@ -152,6 +156,9 @@ body {
         top: 70%;
         left: 50%;
         transform: translateX(-50%);
+        &.d-none {
+          display: none;
+        }
         .btn-navigation {
           position: relative;
           height: 100%;
@@ -214,6 +221,28 @@ body {
         position: absolute;
         margin: 0;
         left: 10px;
+      }
+    }
+
+    .footer {
+      width: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      bottom: 0;
+      color: black;
+      &.d-none {
+        display: none;
+      }
+      p {
+        color: black;
+        size: 12;
+      }
+      a {
+        img {
+          height: 35px;
+        }
       }
     }
   }
@@ -334,4 +363,25 @@ p {
 
 a {
   color: #4291c9;
+}
+
+img {
+  position: absolute;
+  user-select: none;
+  /* ignore select move image on page */
+
+  -webkit-user-drag: none;
+  /* ignore drag image on page */
+
+  -webkit-touch-callout: none;
+  /* ignore callout image on page */
+
+  -webkit-user-select: none;
+  /* ignore select image on page */
+
+  -moz-user-select: none;
+  /* ignore select image on page */
+
+  -ms-user-select: none;
+  /* ignore select image on page */
 }
