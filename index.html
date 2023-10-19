@@ -3,80 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ace Attorney Web</title>
+    <title>Discover me</title>
     <link rel="stylesheet" href="assets/fonts/webfont.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles2.css" />
   </head>
 
   <body oncontextmenu="return false;">
-    <!-- L'écran supérieur -->
-    <div id="top_screen">
-      <!-- Les éléments textuels du jeu (nom, et le message) -->
-      <div id="textbox">
-        <p id="name"></p>
-        <p id="dialog"></p>
+    <div class="game">
+      <!-- L'écran supérieur -->
+      <div id="top_screen" class="window">
+        <!-- Les éléments textuels du jeu (nom, et le message) -->
+
+        <!-- Personnage & arrière plan -->
+        <div id="characterbox">
+          <img
+            src="assets/img/bg/bg_top_start.gif"
+            alt="background image office"
+            id="bg"
+          />
+          <img
+            src="assets/img/sprites/tektiv/silent/normal.gif"
+            alt="character"
+            id="character"
+            class="d-none"
+          />
+        </div>
+
+        <!-- Fenêtres pour nom & message -->
+        <div id="dialogbox">
+          <div alt="name box" id="window_name" class="d-none">
+            <p id="name"></p>
+          </div>
+          <!-- <img
+            src="assets/img/ui/name_box.png"
+            alt="name box"
+            id="window_name"
+            class="d-none"
+          /> -->
+          <img
+            src="assets/img/ui/dialog_box.png"
+            alt="dialog box"
+            id="window_message"
+            class="d-none"
+          />
+        </div>
+
+        <div id="textbox">
+          <p id="name"></p>
+          <p id="dialog"></p>
+        </div>
+
+        <div id="soundeffect" class="d-none">
+          <img src="assets/img/ui/volume.png" alt="sound " id="logo_sound" />
+        </div>
       </div>
 
-      <!-- Personnage & arrière plan -->
-      <div id="characterbox">
+      <!-- L'écran inférieur -->
+      <div id="bottom_screen" class="window">
+        <!-- L'arrière plan de l'écran inférieur -->
         <img
-          src="assets/img/bg/office.jpg"
-          alt="background image office"
-          id="bg"
+          src="assets/img/bg/bg_starts.png"
+          alt="background image bottom"
+          id="bg_bottom"
         />
-        <img
-          src="assets/img/sprites/tektiv/silent/normal.gif"
-          alt="character"
-          id="character"
-        />
-      </div>
 
-      <!-- Fenêtres pour nom & message -->
-      <div id="dialogbox">
-        <img
-          src="assets/img/ui/name_box.png"
-          alt="name box"
-          id="window_name"
-          class="d-none"
-        />
-        <img
-          src="assets/img/ui/dialog_box.png"
-          alt="dialog box"
-          id="window_message"
-          class="d-none"
-        />
-      </div>
-
-      <div id="soundeffect">
-        <img
-          src="assets/img/ui/volume.png"
-          alt="sound "
-          id="logo_sound"
-         
-        />
+        <!-- Bouton message suivant -->
+        <div id="interaction_space">
+          <div class="choice-box start" id="choice_box">
+            <div class="choice start" id="1">
+              <p id="1">Start</p>
+            </div>
+          </div>
+          <div class="navig d-none">
+            <div id="prevbox" class="btn-navigation desable">
+              <img
+                src="assets/img/ui/default_button.png"
+                alt="previous Button"
+                id="prev_button"
+              />
+              <img
+                src="assets/img/ui/arrow.png"
+                alt="next button arrow"
+                id="prev_arrow"
+                class="arrow"
+              />
+              <p>Précédent</p>
+            </div>
+            <div id="nextbox" class="btn-navigation desable">
+              <img
+                src="assets/img/ui/default_button.png"
+                alt="Next Button"
+                id="next_button"
+              />
+              <img
+                src="assets/img/ui/arrow.png"
+                alt="next button arrow"
+                id="next_arrow"
+                class="arrow"
+              />
+              <p>Suivant</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer d-none">
+          <p>Réalisé par Delmont Matthieu</p>
+          <p>Matthieu@delmont.fr</p>
+          <a target="_blank" href="https://github.com/MDelmont"
+            ><img src="assets/img/ui/logo-github.png" alt="lien git hub"
+          /></a>
+        </div>
       </div>
     </div>
 
-    <!-- L'écran inférieur -->
-    <div id="bottom_screen">
-      <!-- L'arrière plan de l'écran inférieur -->
-      <img
-        src="assets/img/ui/bg_bottom.jpg"
-        alt="background image bottom"
-        id="bg_bottom"
-      />
-
-      <!-- Bouton message suivant -->
-      <div id="nextbox">
-        <img
-          src="assets/img/ui/default_button.png"
-          alt="Next Button"
-          id="next_button"
-        />
-        <img src="assets/img/ui/arrow.png" alt="next button arrow" id="arrow" />
-      </div>
-    </div>
-
-    <script src="assets/js/script.js" type="text/javascript"></script>
+    <script type="module" src="assets/js/script.js"></script>
   </body>
 </html>

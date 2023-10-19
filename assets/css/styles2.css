@@ -1,7 +1,11 @@
 body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgb(3, 52, 65), rgb(5, 73, 90));
+}
+body .game {
   position: absolute;
   width: 60vh;
-  background-color: black;
   left: 50%;
   top: 50%;
   margin: 0;
@@ -10,7 +14,8 @@ body {
 }
 body .window {
   position: relative;
-  height: 45vh;
+  width: 100%;
+  aspect-ratio: 256/192;
 }
 body #top_screen #textbox {
   position: absolute;
@@ -84,9 +89,6 @@ body #top_screen #soundeffect {
 body #top_screen #soundeffect #logo_sound {
   position: absolute;
   width: 100%;
-}
-body #bottom_screen {
-  height: 45vh;
 }
 body #bottom_screen #bg_bottom {
   position: absolute;
@@ -234,7 +236,6 @@ body .d-none {
 p {
   color: white;
   font-family: "Igiari";
-  font-size: 8px;
 }
 
 /* Text color CSS */
