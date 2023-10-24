@@ -2,3 +2,5 @@ datas.py
 env1
 __pycache__
 .vscode
+full-properties.json
+datas.json

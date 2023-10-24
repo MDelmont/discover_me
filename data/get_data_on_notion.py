@@ -1,32 +1,27 @@
 from datas import data
 
-
-
 token = data['token']
 url_page = data['url_page']
 databaseIDScénario = data['databaseIDScénario']
 
 import requests, json
 
-
 headers = {
     "Authorization": "Bearer " + token,
     "Content-Type": "application/json",
     "Notion-Version": "2022-02-22"
 }
-# Response a Database
+
 def responseDatabase(databaseID,headers):
     readUrl=f"https://api.notion.com/v1/databases/{databaseID}"
     res=requests.request("GET",readUrl,headers=headers)
     print(res.status_code)
-
 
 def readDatabase(databaseID, headers):
     readUrl = f"https://api.notion.com/v1/databases/{databaseID}/query"
     res = requests.request("POST", readUrl, headers=headers)
     data = res.json()
     print(res.status_code)
-    # print(res.text)
 
     with open('./full-properties.json', 'w', encoding='utf8') as f:
         json.dump(data, f, ensure_ascii=False)
@@ -35,8 +30,6 @@ def readDatabase(databaseID, headers):
 data = readDatabase(databaseIDScénario,headers)
 with open('datas.json', "w") as fichier:
     json.dump(data, fichier)
-
-print(data)
 
 def make_format_dialog(character,backgroud,expression,name,choices,message,voice,order):
 
@@ -81,9 +74,5 @@ for dialog in data["results"]:
 
             scenarios[id_scenario] = { "dialogues": [make_format_dialog(character,backgroud,expression,name,choices,message,voice,order)]}
 
-    
-
-
-    
 with open('./data/scenarios.json', "w") as fichier:
     json.dump(scenarios, fichier)

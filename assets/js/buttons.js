@@ -19,20 +19,24 @@ const pressButton = (btn, arrow) => {
   playNext();
 };
 const addDisableToBtn = (btn) => {
-
   if (!btn.classList.contains("desable")) {
     btn.classList.add("desable");
   }
 };
 const removeDesableBtn = (btn) => {
-
   if (btn.classList.contains("desable")) {
     btn.classList.remove("desable");
   }
 };
 const desableButton = () => {
+  console.log(characters.statusAction.isTyping);
+  console.log(scenes.returnCurrentDialogs().length);
+  console.log(scenes.configScene.messageIndex);
 
-  if (scenes.returnCurrentDialogs().length == 1 && !characters.statusAction.isTyping) {
+  if (
+    scenes.returnCurrentDialogs().length == 1 &&
+    !characters.statusAction.isTyping
+  ) {
     addDisableToBtn(ui.nextBox);
     addDisableToBtn(ui.prevBox);
   } else if (
@@ -42,7 +46,8 @@ const desableButton = () => {
     addDisableToBtn(ui.prevBox);
     removeDesableBtn(ui.nextBox);
   } else if (
-    scenes.returnCurrentDialogs().length - 1 == scenes.configScene.messageIndex &&
+    scenes.returnCurrentDialogs().length - 1 ==
+      scenes.configScene.messageIndex &&
     !characters.statusAction.isTyping
   ) {
     addDisableToBtn(ui.nextBox);
@@ -51,8 +56,6 @@ const desableButton = () => {
     removeDesableBtn(ui.nextBox);
     removeDesableBtn(ui.prevBox);
   }
-
- 
 };
 
 export { resetUiButton, pressButton, pressedBtp, desableButton };
