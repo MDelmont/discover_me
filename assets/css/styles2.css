@@ -118,6 +118,9 @@ body #bottom_screen #interaction_space .choice-box {
 body #bottom_screen #interaction_space .choice-box.start {
   grid-template-columns: 100%;
 }
+body #bottom_screen #interaction_space .choice-box.d-none {
+  display: none;
+}
 body #bottom_screen #interaction_space .choice-box .choice {
   position: relative;
   text-align: center;

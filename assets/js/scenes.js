@@ -1,5 +1,6 @@
 import * as characters from "./characters.js";
 import * as choises from "./choises.js";
+import ui from "./ui.js";
 const configScene = {
   currentSceneIndex: 1,
   messageIndex: -1,
@@ -12,7 +13,7 @@ fetch("./data/scenarios.json")
   .then((data) => {
     // Affectez les données JSON à la variable 'scenes'
     scenes = data;
-
+    ui.choiceBox.classList.remove("d-none");
     // Maintenant, vous pouvez utiliser la variable 'scenes'
   })
   .catch((error) => {

@@ -129,6 +129,9 @@ body {
         &.start {
           grid-template-columns: 100%;
         }
+        &.d-none {
+          display: none;
+        }
         .choice {
           position: relative;
           text-align: center;
