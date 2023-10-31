@@ -29,9 +29,6 @@ const removeDesableBtn = (btn) => {
   }
 };
 const desableButton = () => {
-  console.log(characters.statusAction.isTyping);
-  console.log(scenes.returnCurrentDialogs().length);
-  console.log(scenes.configScene.messageIndex);
 
   if (
     scenes.returnCurrentDialogs().length == 1 &&

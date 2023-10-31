@@ -84,7 +84,6 @@ const typeWriter = (currentScene) => {
   }
 
   statusAction.isTyping = true;
-  console.log(currentScene)
   const isTalking = ui.character.src.includes(
     currentScene.character.toLowerCase()
   );
