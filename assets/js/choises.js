@@ -5,6 +5,11 @@ const creatChoise = (text, id) => {
   var divElement = document.createElement("div");
   divElement.className = "choice";
   divElement.id = id;
+  const listIdNav = ["1", "2"];
+
+  if (listIdNav.includes(id)) {
+    divElement.classList.add("nav");
+  }
 
   // Crée un élément paragraphe (p)
   var pElement = document.createElement("p");

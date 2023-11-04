@@ -131,6 +131,14 @@ body #bottom_screen #interaction_space .choice-box .choice {
   justify-self: center; /* Pour la centrage horizontal */
   align-self: center; /* Pour la centrage vertical */
 }
+body #bottom_screen #interaction_space .choice-box .choice.nav {
+  background-image: url("../img/ui/default_fuir_button.png");
+}
+body #bottom_screen #interaction_space .choice-box .choice.nav:active {
+  background-image: url("../img/ui/pressed_fuir_button.png");
+  width: 98%;
+  height: 98%;
+}
 body #bottom_screen #interaction_space .choice-box .choice p {
   position: absolute;
   top: 50%;
